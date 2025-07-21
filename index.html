@@ -3,80 +3,27 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>AstroNex</title>
-  <style>
-    body, html {
-      margin: 0;
-      padding: 0;
-      overflow: hidden;
-      height: 100%;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-
-    .background {
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 100%;
-      background: url("https://hips.hearstapps.com/hmg-prod/images/digitally-created-3-dimensional-starry-sky-with-royalty-free-image-1744992067.pjpeg?crop=1xw:1xh;center,top&resize=1200:*") no-repeat center center;
-      background-size: cover;
-      animation: rotate 60s linear infinite;
-      z-index: -1;
-    }
-
-    @keyframes rotate {
-      from {
-        transform: rotate(0deg) scale(1.05);
-      }
-      to {
-        transform: rotate(360deg) scale(1.05);
-      }
-    }
-
-    .container {
-      height: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .content {
-      background: rgba(0, 0, 0, 0.6);
-      border-radius: 20px;
-      padding: 40px;
-      text-align: center;
-      box-shadow: 0 0 30px rgba(0, 255, 255, 0.4);
-      max-width: 800px;
-    }
-
-    .content h1 {
-      font-size: 48px;
-      color: white;
-    }
-
-    .highlight {
-      color: #00ffff;
-    }
-
-    .content p {
-      font-size: 20px;
-      color: #ccc;
-      margin-top: 20px;
-    }
-  </style>
+  <title>AstroNex Starfield</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="background"></div>
+  <div class="starfield">
+    <!-- Multiple star elements -->
+    <span class="star small"></span>
+    <span class="star medium"></span>
+    <span class="star large"></span>
+    <span class="nebula"></span>
+    <span class="nebula"></span>
+    <span class="nebula"></span>
+    <span class="nebula"></span>
+  </div>
 
-  <div class="container">
-    <div class="content">
-      <h1>Welcome to <span class="highlight">AstroNex</span></h1>
-      <p>
-        Launching the future—Explore the stars, embrace the tech.<br />
-        AstroNex, your gateway to space innovation and discovery.
-      </p>
-    </div>
+  <div class="landing-container">
+    <h1>Welcome to <span class="highlight">AstroNex</span></h1>
+    <p>
+      Launching the future—Explore the stars, embrace the tech.<br>
+      AstroNex, your gateway to space innovation and discovery.
+    </p>
   </div>
 </body>
 </html>
