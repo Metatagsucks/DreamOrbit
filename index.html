@@ -1,142 +1,30 @@
-/* === Reset === */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DreamOrbit</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="universe">
+    <nav class="navbar">
+      <div class="logo">🚀 DreamOrbit</div>
+      <ul class="nav-links">
+        <li>🏠 Home</li>
+        <li>👤 Login</li>
+        <li>📖 About</li>
+      </ul>
+    </nav>
 
-body, html {
-  height: 100%;
-  font-family: 'Segoe UI', sans-serif;
-  background: black;
-  color: white;
-  overflow: hidden;
-}
+    <div class="hero">
+      <h1 class="headline">Launch Beyond the Stars</h1>
+      <p>Your gateway to interstellar exploration begins here.</p>
+    </div>
 
-/* === Background Universe === */
-.universe {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  background: radial-gradient(ellipse at bottom, #0a0a2a 0%, #000000 100%);
-  overflow: hidden;
-}
-
-/* === Navbar === */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 40px;
-  position: relative;
-  z-index: 2;
-}
-
-.logo {
-  font-size: 1.8rem;
-  font-weight: bold;
-}
-
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 25px;
-}
-
-.nav-links li {
-  font-size: 1.1rem;
-  cursor: pointer;
-  transition: color 0.3s ease;
-}
-
-.nav-links li:hover {
-  color: #00f0ff;
-}
-
-/* === Hero Section === */
-.hero {
-  text-align: center;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 2;
-}
-
-.headline {
-  font-size: 3.5rem;
-  background: linear-gradient(90deg, #00f0ff, #fff, #00f0ff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: bounceIn 2s ease-in-out;
-}
-
-.hero p {
-  font-size: 1.3rem;
-  margin-top: 10px;
-  color: #cccccc;
-}
-
-/* === Headline Animation === */
-@keyframes bounceIn {
-  0% { opacity: 0; transform: scale(0.3); }
-  50% { opacity: 1; transform: scale(1.1); }
-  70% { transform: scale(0.9); }
-  100% { transform: scale(1); }
-}
-
-/* === Stars Twinkling === */
-.stars {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: transparent;
-  background-image: radial-gradient(white 1px, transparent 1px);
-  background-size: 4px 4px;
-  animation: twinkle 20s infinite linear;
-  opacity: 0.6;
-  z-index: 0;
-}
-
-@keyframes twinkle {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(-100px); }
-}
-
-/* === Planet Orbiting === */
-.planet {
-  position: absolute;
-  bottom: 80px;
-  left: 20%;
-  width: 80px;
-  height: 80px;
-  background: radial-gradient(circle, #00f0ff, #003344);
-  border-radius: 50%;
-  animation: orbit 12s linear infinite;
-  z-index: 1;
-}
-
-@keyframes orbit {
-  0% { transform: translateX(0) rotate(0deg); }
-  50% { transform: translateX(200px) rotate(180deg); }
-  100% { transform: translateX(0) rotate(360deg); }
-}
-
-/* === Black Hole Pulsating === */
-.black-hole {
-  position: absolute;
-  top: 20%;
-  right: 15%;
-  width: 100px;
-  height: 100px;
-  background: radial-gradient(circle, #000000, #222);
-  border-radius: 50%;
-  box-shadow: 0 0 40px 10px #333 inset;
-  animation: pulse 5s ease-in-out infinite;
-  z-index: 1;
-}
-
-@keyframes pulse {
-  0%, 100% { transform: scale(1); opacity: 0.8; }
-  50% { transform: scale(0.85); opacity: 0.5; }
-}
+    <div class="stars"></div>
+    <div class="planet"></div>
+    <div class="black-hole"></div>
+  </div>
+</body>
+</html>
