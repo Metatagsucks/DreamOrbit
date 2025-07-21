@@ -1,58 +1,117 @@
-/* Full-space cosmic background */
-body {
+/* Reset */
+* {
   margin: 0;
   padding: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background: url('https://hips.hearstapps.com/hmg-prod/images/digitally-created-3-dimensional-starry-sky-with-royalty-free-image-1744992067.pjpeg?crop=1xw:1xh;center,top&resize=1200:*') no-repeat center center fixed;
-  background-size: cover;
-  height: 100vh;
-  color: white;
-  overflow: hidden;
+  box-sizing: border-box;
 }
 
-/* Animated star layer */
-.stars {
+body, html {
+  height: 100%;
+  overflow: hidden;
+  font-family: 'Segoe UI', sans-serif;
+  background: #000013;
+}
+
+/* Starfield layer */
+.starfield {
+  position: fixed;
   width: 100%;
   height: 100%;
-  background: transparent url('https://raw.githubusercontent.com/VincentGarreau/particles.js/master/demo/media/stars.png') repeat;
-  animation: starScroll 100s linear infinite;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 0;
+  top: 0; left: 0;
+  overflow: hidden;
+  z-index: -1;
 }
 
-/* Hero content box */
+/* Stars */
+.star {
+  position: absolute;
+  background: radial-gradient(circle, #fff 0%, rgba(255,255,255,0) 70%);
+  border-radius: 50%;
+  animation: star-rotate 60s linear infinite;
+}
+
+.star.small {
+  width: 3px; height: 3px;
+  top: 20%; left: 15%;
+  animation-duration: 50s;
+}
+.star.medium {
+  width: 6px; height: 6px;
+  top: 40%; left: 60%;
+  animation-duration: 70s;
+}
+.star.large {
+  width: 10px; height: 10px;
+  top: 70%; left: 30%;
+  animation-duration: 90s;
+}
+
+/* Nebula blobs */
+.nebula {
+  position: absolute;
+  width: 200px;
+  height: 120px;
+  background: radial-gradient(circle at 30% 30%, rgba(200,100,255,0.6) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: nebula-rotate 120s linear infinite;
+}
+
+.nebula:nth-child(4) {
+  top: 10%; left: 70%;
+  background: radial-gradient(circle at 30% 30%, rgba(80, 220, 255, 0.5) 0%, transparent 70%);
+  animation-duration: 140s;
+}
+.nebula:nth-child(5) {
+  top: 50%; left: 80%;
+  background: radial-gradient(circle at 30% 30%, rgba(255, 200, 200, 0.5) 0%, transparent 70%);
+  animation-duration: 160s;
+}
+.nebula:nth-child(6) {
+  top: 75%; left: 20%;
+  background: radial-gradient(circle at 30% 30%, rgba(150, 255, 150, 0.5) 0%, transparent 70%);
+  animation-duration: 180s;
+}
+.nebula:nth-child(7) {
+  top: 30%; left: 40%;
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 150, 0.5) 0%, transparent 70%);
+  animation-duration: 130s;
+}
+
+/* Rotations */
+@keyframes star-rotate {
+  from { transform: translate(-50%, -50%) rotate(0deg) translate(200px) rotate(0deg); }
+  to   { transform: translate(-50%, -50%) rotate(360deg) translate(200px) rotate(-360deg); }
+}
+@keyframes nebula-rotate {
+  from { transform: translate(-50%, -50%) rotate(0deg) translate(0px) rotate(0deg); }
+  to   { transform: translate(-50%, -50%) rotate(-360deg) translate(0px) rotate(360deg); }
+}
+
+/* Content container */
 .landing-container {
   position: relative;
   z-index: 1;
-  background: rgba(0, 0, 0, 0.6);
-  padding: 40px;
+  background: rgba(0,0,0,0.6);
   border-radius: 20px;
+  padding: 40px;
+  max-width: 800px;
+  margin: 15% auto 0;
   text-align: center;
-  width: 50%;
-  margin: 12% auto 0;
-  box-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.4);
 }
 
-.astro {
+.landing-container h1 {
+  font-size: 48px;
+  color: white;
+}
+
+.highlight {
   color: #00ffff;
-  text-shadow: 0 0 15px #00ffff, 0 0 25px #00ffff;
-  font-weight: bold;
 }
 
-/* Animated spaceship GIF */
-.ship {
-  position: absolute;
-  bottom: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 200px;
-  z-index: 2;
-}
-
-/* Background stars scroll effect */
-@keyframes starScroll {
-  0% { background-position: 0 0; }
-  100% { background-position: -10000px 5000px; }
+.landing-container p {
+  font-size: 20px;
+  color: #ccc;
+  line-height: 1.4;
+  margin-top: 20px;
 }
