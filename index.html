@@ -1,127 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>DreamOrbit</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      height: 100vh;
-      background: radial-gradient(ellipse at center, #000010 0%, #000000 100%);
-      overflow: hidden;
-      font-family: 'Segoe UI', sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: relative;
-      color: white;
-    }
-
-    /* Twinkling stars */
-    .stars {
-      position: absolute;
-      width: 300%;
-      height: 300%;
-      background: url('https://i.giphy.com/3o7abB06u9bNzA8lu8.webp') repeat;
-      background-size: cover;
-      animation: moveStars 200s linear infinite;
-      z-index: 0;
-    }
-
-    @keyframes moveStars {
-      0% { transform: translate(0, 0); }
-      100% { transform: translate(-1000px, -1000px); }
-    }
-
-    /* Galaxy swirl */
-    .galaxy {
-      position: absolute;
-      width: 800px;
-      height: 800px;
-      border-radius: 50%;
-      background: repeating-conic-gradient(from 0deg, rgba(0, 255, 255, 0.1) 0deg 10deg, transparent 10deg 20deg);
-      animation: spin 120s linear infinite;
-      z-index: 1;
-    }
-
-    /* Black hole center */
-    .blackhole {
-      position: absolute;
-      width: 200px;
-      height: 200px;
-      border-radius: 50%;
-      background: radial-gradient(circle, #000 30%, #111 70%, #000 100%);
-      box-shadow: 0 0 60px 20px rgba(0, 255, 255, 0.2);
-      animation: swirl 30s linear infinite reverse;
-      z-index: 2;
-    }
-
-    @keyframes spin {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
-    }
-
-    @keyframes swirl {
-      from { transform: scale(1) rotate(0deg); }
-      to { transform: scale(1.05) rotate(-360deg); }
-    }
-
-    .welcome-box {
-      position: relative;
-      z-index: 3;
-      background: rgba(0, 0, 0, 0.7);
-      padding: 40px 60px;
-      border-radius: 20px;
-      box-shadow: 0 0 30px #00ffff;
-      text-align: center;
-      max-width: 600px;
-    }
-
-    .welcome-box h1 {
-      color: #00ffff;
-      font-size: 3rem;
-      margin-bottom: 20px;
-    }
-
-    .welcome-box p {
-      color: #ccc;
-      font-size: 1.2rem;
-      line-height: 1.5;
-    }
-
-    @media (max-width: 600px) {
-      .welcome-box {
-        padding: 20px;
-      }
-
-      .welcome-box h1 {
-        font-size: 2rem;
-      }
-
-      .welcome-box p {
-        font-size: 1rem;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <div class="universe">
+    <nav class="navbar">
+      <div class="logo">🚀 DreamOrbit</div>
+      <ul class="nav-links">
+        <li>🏠 Home</li>
+        <li>👤 Login</li>
+        <li>📖 About</li>
+      </ul>
+    </nav>
 
-  <div class="stars"></div>
-  <div class="galaxy"></div>
-  <div class="blackhole"></div>
+    <div class="hero">
+      <h1 class="animated-headline">Launch Beyond the Stars</h1>
+      <p>Your gateway to interstellar exploration begins here.</p>
+    </div>
 
-  <div class="welcome-box">
-    <h1>Welcome to DreamOrbit</h1>
-    <p>
-      Explore the cosmos—your gateway to space-tech innovation.<br>
-      Powered by imagination, fueled by the stars.
-    </p>
+    <!-- Planets and stars -->
+    <div class="stars"></div>
+    <div class="planet"></div>
+    <div class="black-hole"></div>
   </div>
-
 </body>
 </html>
