@@ -4,18 +4,79 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>AstroNex</title>
-  <link rel="stylesheet" href="style.css" />
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      height: 100%;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background: url("fc833dea-2966-453f-a0c8-9160a8d33a94.png") no-repeat center center;
+      background-size: cover;
+      animation: rotate 60s linear infinite;
+      z-index: -1;
+    }
+
+    @keyframes rotate {
+      from {
+        transform: rotate(0deg) scale(1.05);
+      }
+      to {
+        transform: rotate(360deg) scale(1.05);
+      }
+    }
+
+    .container {
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .content {
+      background: rgba(0, 0, 0, 0.6);
+      border-radius: 20px;
+      padding: 40px;
+      text-align: center;
+      box-shadow: 0 0 30px rgba(0, 255, 255, 0.4);
+      max-width: 800px;
+    }
+
+    .content h1 {
+      font-size: 48px;
+      color: white;
+    }
+
+    .highlight {
+      color: #00ffff;
+    }
+
+    .content p {
+      font-size: 20px;
+      color: #ccc;
+      margin-top: 20px;
+    }
+  </style>
 </head>
 <body>
-  <div class="stars"></div>
+  <div class="background"></div>
 
-  <div class="landing-container">
-    <h1>Welcome to <span class="astro">AstroNex</span></h1>
-    <p>Launching the future—Explore the stars, embrace the tech.<br>
-    AstroNex, your gateway to space innovation and discovery.</p>
+  <div class="container">
+    <div class="content">
+      <h1>Welcome to <span class="highlight">AstroNex</span></h1>
+      <p>
+        Launching the future—Explore the stars, embrace the tech.<br />
+        AstroNex, your gateway to space innovation and discovery.
+      </p>
+    </div>
   </div>
-
-  <!-- Space landing spaceship GIF -->
-  <img src="https://media.giphy.com/media/MF1gS3yS2zr8tUZ5dj/giphy.gif" class="ship" alt="Landing Spaceship" />
 </body>
 </html>
