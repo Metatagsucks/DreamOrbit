@@ -1,29 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
   <title>DreamOrbit</title>
-  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Reset and body styling */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      height: 100vh;
+      background: black;
+      overflow: hidden;
+      font-family: 'Segoe UI', sans-serif;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    /* Rotating galaxy and black hole */
+    .galaxy, .blackhole {
+      position: absolute;
+      border-radius: 50%;
+      animation: spin 80s linear infinite;
+      z-index: 0;
+    }
+
+    .galaxy {
+      width: 1000px;
+      height: 1000px;
+      background: radial-gradient(#0ff3, #0000 60%), repeating-conic-gradient(#0ff2 0deg 10deg, transparent 10deg 20deg);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .blackhole {
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(circle at center, #000 20%, #222 70%, #000 100%);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      animation: spin 15s linear infinite reverse;
+      box-shadow: 0 0 40px 10px rgba(0, 255, 255, 0.3);
+    }
+
+    @keyframes spin {
+      0% { transform: translate(-50%, -50%) rotate(0deg); }
+      100% { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+
+    /* Main Welcome Box */
+    .welcome-box {
+      z-index: 2;
+      background: rgba(0, 0, 0, 0.85);
+      border-radius: 20px;
+      padding: 40px 60px;
+      text-align: center;
+      box-shadow: 0 0 30px #0ff, 0 0 50px #0ff2;
+      max-width: 700px;
+    }
+
+    .welcome-box h1 {
+      color: #00ffff;
+      font-size: 3em;
+      margin-bottom: 20px;
+    }
+
+    .welcome-box p {
+      font-size: 1.2em;
+      color: #ccc;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 600px) {
+      .welcome-box {
+        padding: 30px 20px;
+      }
+
+      .welcome-box h1 {
+        font-size: 2em;
+      }
+
+      .welcome-box p {
+        font-size: 1em;
+      }
+    }
+  </style>
 </head>
 <body>
-  <div class="space-bg">
-    <div class="stars"></div>
-    <div class="black-hole"></div>
-    <div class="galaxy"></div>
-    <div class="comet"></div>
-  </div>
+  <div class="galaxy"></div>
+  <div class="blackhole"></div>
 
-  <div class="container">
+  <div class="welcome-box">
     <h1>Welcome to DreamOrbit</h1>
-    <p>Launching the future—Explore the stars, embrace the tech.<br />
-    DreamOrbit, your gateway to space innovation and discovery.</p>
+    <p>
+      Launching the future—Explore the stars, embrace the tech.<br>
+      DreamOrbit, your gateway to space innovation and discovery.
+    </p>
   </div>
-
-  <!-- 🎵 Optional Space Music -->
-  <audio autoplay loop>
-    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-10.mp3" type="audio/mpeg" />
-    Your browser does not support the audio element.
-  </audio>
 </body>
 </html>
