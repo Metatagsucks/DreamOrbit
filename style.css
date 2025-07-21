@@ -14,6 +14,56 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  overflow: hidden;
+}
+
+/* Animated Space Background */
+.space-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.space-bg span {
+  position: absolute;
+  display: block;
+  width: 10px;
+  height: 10px;
+  background: radial-gradient(circle, #fff, #aaa);
+  border-radius: 50%;
+  animation: fall 6s linear infinite;
+  opacity: 0.8;
+}
+
+.space-bg span:nth-child(1) { left: 10%; animation-delay: 0s; }
+.space-bg span:nth-child(2) { left: 20%; animation-delay: 1s; }
+.space-bg span:nth-child(3) { left: 30%; animation-delay: 2s; }
+.space-bg span:nth-child(4) { left: 40%; animation-delay: 0.5s; }
+.space-bg span:nth-child(5) { left: 50%; animation-delay: 1.5s; }
+.space-bg span:nth-child(6) { left: 60%; animation-delay: 3s; }
+.space-bg span:nth-child(7) { left: 70%; animation-delay: 0.8s; }
+.space-bg span:nth-child(8) { left: 80%; animation-delay: 2.5s; }
+.space-bg span:nth-child(9) { left: 90%; animation-delay: 1.2s; }
+.space-bg span:nth-child(10) { left: 100%; animation-delay: 2.8s; }
+
+@keyframes fall {
+  0% {
+    top: -10%;
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    top: 110%;
+    transform: scale(0.2);
+    opacity: 0;
+  }
 }
 
 /* Header */
@@ -35,6 +85,7 @@ header nav {
   color: #fff;
   position: relative;
   animation: glitch 1.5s infinite;
+  letter-spacing: 2px;
 }
 
 @keyframes glitch {
