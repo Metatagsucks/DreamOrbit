@@ -1,4 +1,4 @@
-/* Reset and Base Styles */
+/* Base Setup */
 * {
   margin: 0;
   padding: 0;
@@ -6,57 +6,52 @@
 }
 
 body {
-  font-family: 'Orbitron', sans-serif;
   height: 100vh;
-  background: radial-gradient(circle at 30% 30%, #ff8fe5, transparent 40%),
-              radial-gradient(circle at 70% 60%, #5bd7ff, transparent 40%),
-              radial-gradient(circle at 80% 20%, #f9f871, transparent 30%),
-              #000014;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+  background: url("e4982df3-ff9f-473f-8915-0271411ace5c.png") no-repeat center center fixed;
   background-size: cover;
-  color: white;
+  animation: fadeIn 3s ease-in-out forwards;
+  font-family: 'Orbitron', sans-serif;
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
+}
+
+/* Content Overlay */
+.overlay {
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 3rem;
+  border-radius: 1rem;
   text-align: center;
-  padding: 2rem;
+  animation: floatText 4s ease-in-out forwards;
 }
 
-/* Hero Heading Animation */
 h1 {
-  font-size: 3em;
-  animation: bounceIn 2s ease-out forwards;
-  opacity: 0;
+  font-size: 3.5em;
   color: cyan;
-  text-shadow: 0 0 5px #0ff, 0 0 15px #0ff, 0 0 30px #0ff;
+  text-shadow: 0 0 10px #0ff, 0 0 30px #0ff;
+  margin-bottom: 1rem;
 }
 
-/* Supporting Paragraph */
 p {
+  color: #ddd;
   font-size: 1.2em;
-  margin-top: 1rem;
-  color: #ccc;
-  max-width: 600px;
   line-height: 1.5;
 }
 
-/* Bounce-In Keyframes */
-@keyframes bounceIn {
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes floatText {
   0% {
-    transform: translateY(-100px);
+    transform: translateY(50px);
     opacity: 0;
-  }
-  60% {
-    transform: translateY(20px);
-    opacity: 1;
-  }
-  80% {
-    transform: translateY(-10px);
   }
   100% {
     transform: translateY(0);
+    opacity: 1;
   }
 }
