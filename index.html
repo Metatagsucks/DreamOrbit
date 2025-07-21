@@ -15,122 +15,111 @@
       background: radial-gradient(ellipse at center, #000010 0%, #000000 100%);
       overflow: hidden;
       font-family: 'Segoe UI', sans-serif;
-      color: white;
       display: flex;
       justify-content: center;
       align-items: center;
       position: relative;
+      color: white;
     }
 
-    /* Twinkling stars background */
+    /* Twinkling stars */
     .stars {
       position: absolute;
-      width: 200%;
-      height: 200%;
-      background: transparent url('https://i.ibb.co/hM4F9hK/stars.png') repeat;
-      animation: moveStars 100s linear infinite;
+      width: 300%;
+      height: 300%;
+      background: url('https://media.giphy.com/media/3o7abB06u9bNzA8lu8/giphy.gif') repeat;
+      background-size: cover;
+      animation: moveStars 200s linear infinite;
       z-index: 0;
     }
 
     @keyframes moveStars {
-      from { transform: translate(0, 0); }
-      to { transform: translate(-500px, -500px); }
+      0% { transform: translate(0, 0); }
+      100% { transform: translate(-1000px, -1000px); }
     }
 
-    /* Rotating Galaxy */
+    /* Galaxy swirl */
     .galaxy {
       position: absolute;
-      width: 1000px;
-      height: 1000px;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background: repeating-conic-gradient(rgba(0,255,255,0.07) 0deg 10deg, transparent 10deg 20deg);
+      width: 800px;
+      height: 800px;
       border-radius: 50%;
+      background: repeating-conic-gradient(from 0deg, rgba(0, 255, 255, 0.1) 0deg 10deg, transparent 10deg 20deg);
       animation: spin 120s linear infinite;
       z-index: 1;
     }
 
-    /* Black Hole Core */
+    /* Black hole center */
     .blackhole {
       position: absolute;
       width: 200px;
       height: 200px;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background: radial-gradient(circle at center, #000 30%, #111 70%, #000 100%);
       border-radius: 50%;
-      animation: swirl 20s linear infinite reverse;
+      background: radial-gradient(circle, #000 30%, #111 70%, #000 100%);
       box-shadow: 0 0 60px 20px rgba(0, 255, 255, 0.2);
+      animation: swirl 30s linear infinite reverse;
       z-index: 2;
     }
 
     @keyframes spin {
-      0% { transform: translate(-50%, -50%) rotate(0deg); }
-      100% { transform: translate(-50%, -50%) rotate(360deg); }
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
     }
 
     @keyframes swirl {
-      0% { transform: translate(-50%, -50%) rotate(0deg) scale(1); }
-      100% { transform: translate(-50%, -50%) rotate(-360deg) scale(1.05); }
+      from { transform: scale(1) rotate(0deg); }
+      to { transform: scale(1.05) rotate(-360deg); }
     }
 
-    /* Welcome box content */
     .welcome-box {
+      position: relative;
       z-index: 3;
-      background: rgba(0, 0, 0, 0.85);
-      border-radius: 20px;
+      background: rgba(0, 0, 0, 0.7);
       padding: 40px 60px;
+      border-radius: 20px;
+      box-shadow: 0 0 30px #00ffff;
       text-align: center;
-      box-shadow: 0 0 40px #0ff, 0 0 60px #0ff2;
-      max-width: 700px;
+      max-width: 600px;
     }
 
     .welcome-box h1 {
       color: #00ffff;
-      font-size: 3em;
+      font-size: 3rem;
       margin-bottom: 20px;
     }
 
     .welcome-box p {
-      font-size: 1.2em;
       color: #ccc;
+      font-size: 1.2rem;
       line-height: 1.5;
     }
 
     @media (max-width: 600px) {
       .welcome-box {
-        padding: 30px 20px;
+        padding: 20px;
       }
 
       .welcome-box h1 {
-        font-size: 2em;
+        font-size: 2rem;
       }
 
       .welcome-box p {
-        font-size: 1em;
+        font-size: 1rem;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- Twinkling Star Background -->
   <div class="stars"></div>
-
-  <!-- Rotating Galaxy Disc -->
   <div class="galaxy"></div>
-
-  <!-- Black Hole Core -->
   <div class="blackhole"></div>
 
-  <!-- Foreground Welcome Text -->
   <div class="welcome-box">
     <h1>Welcome to DreamOrbit</h1>
     <p>
-      Launch into the cosmos—Explore the stars, unlock innovation.<br>
-      DreamOrbit is your gateway to space-tech exploration.
+      Explore the cosmos—your gateway to space-tech innovation.<br>
+      Powered by imagination, fueled by the stars.
     </p>
   </div>
 
