@@ -7,7 +7,13 @@
 
 /* Body Styling */
 body {
-  background: radial-gradient(ellipse at bottom, #0d0d0d 0%, #000000 100%);
+  background: radial-gradient(circle at 20% 30%, #ff8aff, transparent 25%),
+              radial-gradient(circle at 80% 20%, #ffd700, transparent 30%),
+              radial-gradient(circle at 50% 70%, #00ffe5, transparent 25%),
+              radial-gradient(circle at 10% 90%, #ff6b6b, transparent 30%),
+              linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
+  background-blend-mode: screen;
+  background-color: #000;
   color: #ffffff;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   height: 100vh;
@@ -24,13 +30,14 @@ body {
   font-size: 2.8rem;
   animation: bounceIn 2s ease-out;
   color: #00ffff;
-  text-shadow: 0 0 10px #00ffff;
+  text-shadow: 0 0 20px #00ffff, 0 0 40px #ff00ff;
 }
 
 .hero p {
   font-size: 1.2rem;
   margin-top: 20px;
-  color: #bbbbbb;
+  color: #dddddd;
+  text-shadow: 0 0 5px #aaffff;
 }
 
 /* Bounce Animation */
@@ -71,6 +78,7 @@ body {
   border-radius: 15px;
   position: relative;
   margin: 0 auto;
+  box-shadow: 0 0 10px #fff;
 }
 
 .rocket .window {
@@ -81,6 +89,7 @@ body {
   position: absolute;
   top: 20px;
   left: 9px;
+  box-shadow: 0 0 8px #00bfff;
 }
 
 .rocket .flame {
@@ -89,6 +98,7 @@ body {
   background: linear-gradient(to bottom, orange, red);
   margin: auto;
   animation: flameAnim 0.3s infinite alternate;
+  box-shadow: 0 0 15px orange;
 }
 
 /* Rocket Descent Animation */
