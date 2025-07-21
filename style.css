@@ -1,46 +1,49 @@
-/* General Reset */
+/* Reset and Base Styles */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Body Styling */
 body {
-  background: radial-gradient(circle at 20% 30%, #ff8aff, transparent 25%),
-              radial-gradient(circle at 80% 20%, #ffd700, transparent 30%),
-              radial-gradient(circle at 50% 70%, #00ffe5, transparent 25%),
-              radial-gradient(circle at 10% 90%, #ff6b6b, transparent 30%),
-              linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
-  background-blend-mode: screen;
-  background-color: #000;
-  color: #ffffff;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Orbitron', sans-serif;
   height: 100vh;
-  overflow-x: hidden;
-}
-
-/* Hero Section */
-.hero {
+  background: radial-gradient(circle at 30% 30%, #ff8fe5, transparent 40%),
+              radial-gradient(circle at 70% 60%, #5bd7ff, transparent 40%),
+              radial-gradient(circle at 80% 20%, #f9f871, transparent 30%),
+              #000014;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  color: white;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
   text-align: center;
-  padding: 100px 20px 60px;
+  padding: 2rem;
 }
 
-.animated-text {
-  font-size: 2.8rem;
-  animation: bounceIn 2s ease-out;
-  color: #00ffff;
-  text-shadow: 0 0 20px #00ffff, 0 0 40px #ff00ff;
+/* Hero Heading Animation */
+h1 {
+  font-size: 3em;
+  animation: bounceIn 2s ease-out forwards;
+  opacity: 0;
+  color: cyan;
+  text-shadow: 0 0 5px #0ff, 0 0 15px #0ff, 0 0 30px #0ff;
 }
 
-.hero p {
-  font-size: 1.2rem;
-  margin-top: 20px;
-  color: #dddddd;
-  text-shadow: 0 0 5px #aaffff;
+/* Supporting Paragraph */
+p {
+  font-size: 1.2em;
+  margin-top: 1rem;
+  color: #ccc;
+  max-width: 600px;
+  line-height: 1.5;
 }
 
-/* Bounce Animation */
+/* Bounce-In Keyframes */
 @keyframes bounceIn {
   0% {
     transform: translateY(-100px);
@@ -50,107 +53,10 @@ body {
     transform: translateY(20px);
     opacity: 1;
   }
+  80% {
+    transform: translateY(-10px);
+  }
   100% {
     transform: translateY(0);
-  }
-}
-
-/* Landing Scene */
-.landing-scene {
-  position: relative;
-  height: 300px;
-  margin-top: 4rem;
-}
-
-/* Rocket Components */
-.rocket {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  bottom: 60px;
-  animation: descend 5s ease-out forwards;
-}
-
-.rocket .body {
-  width: 30px;
-  height: 80px;
-  background: linear-gradient(to bottom, #ccc, #999);
-  border-radius: 15px;
-  position: relative;
-  margin: 0 auto;
-  box-shadow: 0 0 10px #fff;
-}
-
-.rocket .window {
-  width: 12px;
-  height: 12px;
-  background: #0077ff;
-  border-radius: 50%;
-  position: absolute;
-  top: 20px;
-  left: 9px;
-  box-shadow: 0 0 8px #00bfff;
-}
-
-.rocket .flame {
-  width: 10px;
-  height: 30px;
-  background: linear-gradient(to bottom, orange, red);
-  margin: auto;
-  animation: flameAnim 0.3s infinite alternate;
-  box-shadow: 0 0 15px orange;
-}
-
-/* Rocket Descent Animation */
-@keyframes descend {
-  0% {
-    bottom: 100%;
-  }
-  60% {
-    bottom: 80px;
-  }
-  100% {
-    bottom: 60px;
-  }
-}
-
-/* Flame Flicker Animation */
-@keyframes flameAnim {
-  from {
-    transform: scaleY(1);
-    opacity: 0.9;
-  }
-  to {
-    transform: scaleY(1.5);
-    opacity: 0.3;
-  }
-}
-
-/* Dust Puff Animation */
-.dust {
-  position: absolute;
-  left: 50%;
-  bottom: 50px;
-  transform: translateX(-50%);
-  width: 50px;
-  height: 10px;
-  background: radial-gradient(circle, #bbb 20%, transparent 70%);
-  opacity: 0;
-  animation: dustPuff 5s ease-out forwards;
-  animation-delay: 4.5s;
-}
-
-@keyframes dustPuff {
-  0% {
-    transform: translateX(-50%) scale(0.5);
-    opacity: 0;
-  }
-  50% {
-    transform: translateX(-50%) scale(1.2);
-    opacity: 0.6;
-  }
-  100% {
-    transform: translateX(-50%) scale(1.5);
-    opacity: 0;
   }
 }
