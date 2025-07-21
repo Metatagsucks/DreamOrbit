@@ -1,0 +1,77 @@
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  background: radial-gradient(ellipse at bottom, #0d0d2b, #000);
+  color: #ffffff;
+  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Header */
+header nav {
+  padding: 1.5rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+/* Hero Section */
+.hero {
+  margin-top: 10vh;
+  padding: 2rem;
+}
+
+.glitch-text {
+  font-size: 3.5rem;
+  color: #fff;
+  position: relative;
+  animation: glitch 1.5s infinite;
+}
+
+@keyframes glitch {
+  0% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(2px, -2px); }
+  60% { transform: translate(-1px, 1px); }
+  80% { transform: translate(1px, -1px); }
+  100% { transform: translate(0); }
+}
+
+.hero p {
+  font-size: 1.25rem;
+  margin: 1rem 0;
+  color: #bbb;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.8rem 2rem;
+  background: linear-gradient(45deg, #ff0080, #7928ca);
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: 1rem;
+  transition: background 0.4s ease;
+}
+
+.btn:hover {
+  background: linear-gradient(45deg, #7928ca, #ff0080);
+}
+
+/* Footer */
+footer {
+  padding: 1rem;
+  font-size: 0.9rem;
+  background-color: rgba(255, 255, 255, 0.03);
+}
