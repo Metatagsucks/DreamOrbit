@@ -1,57 +1,58 @@
-/* Base Setup */
-* {
+/* Full-space cosmic background */
+body {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  height: 100vh;
-  background: url("e4982df3-ff9f-473f-8915-0271411ace5c.png") no-repeat center center fixed;
+  font-family: 'Segoe UI', sans-serif;
+  background: url('da326e4e-5085-4db9-9550-fe94f96fd880.png') no-repeat center center fixed;
   background-size: cover;
-  animation: fadeIn 3s ease-in-out forwards;
-  font-family: 'Orbitron', sans-serif;
+  height: 100vh;
+  color: white;
   overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
-/* Content Overlay */
-.overlay {
-  background-color: rgba(0, 0, 0, 0.6);
-  padding: 3rem;
-  border-radius: 1rem;
+/* Animated star layer */
+.stars {
+  width: 100%;
+  height: 100%;
+  background: transparent url('https://raw.githubusercontent.com/VincentGarreau/particles.js/master/demo/media/stars.png') repeat;
+  animation: starScroll 100s linear infinite;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+/* Hero content box */
+.landing-container {
+  position: relative;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 40px;
+  border-radius: 20px;
   text-align: center;
-  animation: floatText 4s ease-in-out forwards;
+  width: 50%;
+  margin: 12% auto 0;
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
 }
 
-h1 {
-  font-size: 3.5em;
-  color: cyan;
-  text-shadow: 0 0 10px #0ff, 0 0 30px #0ff;
-  margin-bottom: 1rem;
+.astro {
+  color: #00ffff;
+  text-shadow: 0 0 15px #00ffff, 0 0 25px #00ffff;
+  font-weight: bold;
 }
 
-p {
-  color: #ddd;
-  font-size: 1.2em;
-  line-height: 1.5;
+/* Animated spaceship GIF */
+.ship {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  z-index: 2;
 }
 
-/* Animations */
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes floatText {
-  0% {
-    transform: translateY(50px);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
+/* Background stars scroll effect */
+@keyframes starScroll {
+  0% { background-position: 0 0; }
+  100% { background-position: -10000px 5000px; }
 }
