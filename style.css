@@ -1,117 +1,138 @@
-/* Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body, html {
-  height: 100%;
+body {
+  height: 100vh;
   overflow: hidden;
-  font-family: 'Segoe UI', sans-serif;
-  background: #000013;
+  background: black;
+  color: #00ffff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
 }
 
-/* Starfield layer */
-.starfield {
-  position: fixed;
+.space-bg {
+  position: absolute;
   width: 100%;
   height: 100%;
-  top: 0; left: 0;
   overflow: hidden;
   z-index: -1;
 }
 
-/* Stars */
-.star {
+/* Twinkling stars background */
+.stars::before,
+.stars::after {
+  content: "";
   position: absolute;
-  background: radial-gradient(circle, #fff 0%, rgba(255,255,255,0) 70%);
-  border-radius: 50%;
-  animation: star-rotate 60s linear infinite;
+  width: 200%;
+  height: 200%;
+  background: transparent;
+  background-image: radial-gradient(white 1px, transparent 1px);
+  background-size: 4px 4px;
+  animation: twinkle 4s linear infinite;
+  opacity: 0.5;
 }
 
-.star.small {
-  width: 3px; height: 3px;
-  top: 20%; left: 15%;
-  animation-duration: 50s;
-}
-.star.medium {
-  width: 6px; height: 6px;
-  top: 40%; left: 60%;
-  animation-duration: 70s;
-}
-.star.large {
-  width: 10px; height: 10px;
-  top: 70%; left: 30%;
-  animation-duration: 90s;
+.stars::after {
+  animation-delay: 2s;
 }
 
-/* Nebula blobs */
-.nebula {
+@keyframes twinkle {
+  0% { transform: translate(0, 0); opacity: 0.2; }
+  50% { opacity: 1; }
+  100% { transform: translate(-50px, -50px); opacity: 0.2; }
+}
+
+/* Black hole */
+.black-hole {
   position: absolute;
+  top: 50%;
+  left: 50%;
   width: 200px;
-  height: 120px;
-  background: radial-gradient(circle at 30% 30%, rgba(200,100,255,0.6) 0%, transparent 70%);
+  height: 200px;
+  background: radial-gradient(circle, #000 30%, #333 70%, transparent 100%);
   border-radius: 50%;
-  animation: nebula-rotate 120s linear infinite;
+  transform: translate(-50%, -50%);
+  animation: spin 6s linear infinite;
+  opacity: 0.6;
 }
 
-.nebula:nth-child(4) {
-  top: 10%; left: 70%;
-  background: radial-gradient(circle at 30% 30%, rgba(80, 220, 255, 0.5) 0%, transparent 70%);
-  animation-duration: 140s;
-}
-.nebula:nth-child(5) {
-  top: 50%; left: 80%;
-  background: radial-gradient(circle at 30% 30%, rgba(255, 200, 200, 0.5) 0%, transparent 70%);
-  animation-duration: 160s;
-}
-.nebula:nth-child(6) {
-  top: 75%; left: 20%;
-  background: radial-gradient(circle at 30% 30%, rgba(150, 255, 150, 0.5) 0%, transparent 70%);
-  animation-duration: 180s;
-}
-.nebula:nth-child(7) {
-  top: 30%; left: 40%;
-  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 150, 0.5) 0%, transparent 70%);
-  animation-duration: 130s;
+/* Galaxy swirl */
+.galaxy {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  height: 400px;
+  border: 4px dotted rgba(0, 255, 255, 0.3);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  animation: spin 12s linear infinite reverse;
+  opacity: 0.4;
 }
 
-/* Rotations */
-@keyframes star-rotate {
-  from { transform: translate(-50%, -50%) rotate(0deg) translate(200px) rotate(0deg); }
-  to   { transform: translate(-50%, -50%) rotate(360deg) translate(200px) rotate(-360deg); }
-}
-@keyframes nebula-rotate {
-  from { transform: translate(-50%, -50%) rotate(0deg) translate(0px) rotate(0deg); }
-  to   { transform: translate(-50%, -50%) rotate(-360deg) translate(0px) rotate(360deg); }
+@keyframes spin {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
 }
 
-/* Content container */
-.landing-container {
-  position: relative;
-  z-index: 1;
-  background: rgba(0,0,0,0.6);
-  border-radius: 20px;
+/* Shooting comet */
+.comet {
+  position: absolute;
+  top: -50px;
+  left: -100px;
+  width: 200px;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(255,255,255,0.8), transparent);
+  transform: rotate(45deg);
+  animation: shoot 6s linear infinite;
+  opacity: 0.7;
+}
+
+@keyframes shoot {
+  0% {
+    top: -50px;
+    left: -100px;
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    top: 120%;
+    left: 150%;
+    opacity: 0;
+  }
+}
+
+.container {
+  background: rgba(0, 0, 0, 0.9);
   padding: 40px;
-  max-width: 800px;
-  margin: 15% auto 0;
+  border-radius: 20px;
+  box-shadow: 0 0 40px rgba(0, 255, 255, 0.6);
   text-align: center;
-  box-shadow: 0 0 30px rgba(0, 255, 255, 0.4);
+  max-width: 700px;
+  z-index: 1;
 }
 
-.landing-container h1 {
-  font-size: 48px;
-  color: white;
-}
-
-.highlight {
+.container h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 20px;
   color: #00ffff;
 }
 
-.landing-container p {
-  font-size: 20px;
+.container p {
+  font-size: 1.2rem;
   color: #ccc;
-  line-height: 1.4;
-  margin-top: 20px;
+  line-height: 1.5;
 }
